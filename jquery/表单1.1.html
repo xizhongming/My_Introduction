@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        /*#div1{*/
+            /*width:100px;*/
+            /*height:100px;*/
+            /*background:red;*/
+        /*}*/
+    </style>
+    <style type="text/css">
+        body{
+            font:normal 12px/17px Arial;
+        }
+        div{
+            padding:2px;
+        }
+        input, textarea {
+            width: 12em;
+            border: 1px solid #888;
+        }
+        .focus{
+            border: 1px solid #f00;
+            background: #fcc;
+        }
+    </style>
+</head>
+<body>
+
+<form action="" method="post" id="regForm">
+    <fieldset>
+        <legend>个人基本信息</legend>
+        <div>
+            <label  for="username">名称:</label>
+            <input id="username" type="text" />
+        </div>
+        <div>
+            <label for="pass">密码:</label>
+            <input id="pass" type="password" />
+        </div>
+        <div>
+            <label for="msg">详细信息:</label>
+            <textarea id="msg" rows="2" cols="20"></textarea>
+        </div>
+    </fieldset>
+</form>
+
+<div id="div1"></div>
+<script src="../jquery-3.2.1.js"></script>
+<script>
+    $("#div1").on('click',function(){
+       console.log(this);
+       $("#div1").addClass("focus");
+    })
+
+    /*
+		文本框得到/失去焦点练习，完成文本框得到/失去焦点时动态变换文本框样式功能。
+	*/
+    //文档就绪函数
+    $(function(){
+        //思路：选中所有的输入框，注册获得焦点事件，添加样式：focus；注册失去焦点事件，动态移除样式：focus
+        //要求：尽量使用链式操作
+        $("input").add("#msg").focus(function(){
+            $(this).addClass("focus");
+//            $("input").addClass("focus");
+//            $("#msg").addClass("focus");
+//            $("input").css(" border","1px solid #f00").css("background","#fcc")
+        }).blur(function(){
+            $(this).removeClass("focus");
+//            $("input").removeClass("focus");
+//            $("#msg").removeClass("focus");
+        })
+//        $("input").blur(function(){
+//            $("input").removeClass("focus");
+//            $("#msg").removeClass("focus");
+////        })
+//        $("#msg").focus(function(){
+//            $("input").addClass("focus");
+//            $("#msg").addClass("focus");
+//        })
+//        $("#msg").blur(function(){
+//
+//        })
+
+//        $("input").on("focus",function(){
+//            $("input").addClass("focus");
+//            console.log(this);
+//        })
+
+    })
+</script>
+</body>
+</html>
