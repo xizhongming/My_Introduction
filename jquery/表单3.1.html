@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+<form method="post" action="">
+你爱好的运动是？
+<br/>
+<input type="checkbox" name="items" value="足球"/>足球
+<input type="checkbox" name="items" value="篮球"/>篮球
+<input type="checkbox" name="items" value="羽毛球"/>羽毛球
+<input type="checkbox" name="items" value="乒乓球"/>乒乓球
+<br/>
+<input type="button" id="CheckedAll" value="全　选"/>
+<input type="button" id="CheckedNo" value="全不选"/>
+<input type="button" id="CheckedRev" value="反　选"/>
+
+<input type="button" id="send" value="提　交"/>
+</form>
+<script src="../jquery-3.2.1.js"></script>
+<script>
+
+    $(function(){
+        var $items=$("input[name=items]:checkbox");
+        $("#CheckedAll").on("click",function(){
+            $items.each(function(){
+                this.checked=true;
+            })
+        });
+        $("#CheckedNo").on("click",function(){
+                $items.each(function(){
+                    this.checked=false;
+                })
+        });
+        $("#CheckedRev").on("click",function(){
+            $items.each(function(){
+               this.checked=!this.checked;
+            })
+        });
+        $("#send").on("click",function(){
+            var str="你选中的是:\r\n";
+            $("input[name=items]:checkbox:checked").each(function(){
+                str+=$(this).val()+"\r\n";
+            });
+            alert(str);
+        })
+    })
+
+</script>
+</body>
+</html>
