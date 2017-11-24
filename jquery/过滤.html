@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<!--三个最基本的过滤方法是：first(), last() 和 eq()，它们允许您基于其在一组元素中的位置来选择一个特定的元素。-->
+<!--其他过滤方法，比如 filter() 和 not() 允许您选取匹配或不匹配某项指定标准的元素。-->
+<!--first() 方法返回被选元素的首个元素。-->
+<!--last() 方法返回被选元素的最后一个元素。-->
+<!--eq() 方法返回被选元素中带有指定索引号的元素。-->
+<!--索引号从 0 开始，因此首个元素的索引号是 0 而不是 1。-->
+<!--filter() 方法允许您规定一个标准。不匹配这个标准的元素会被从集合中删除，匹配的元素会被返回。-->
+<body>
+<!--<h1>欢迎来到我的主页</h1>-->
+<!--<div>-->
+    <!--<p>这是 div 中的一个段落。</p>-->
+<!--</div>-->
+<!--<div>-->
+    <!--<p>这是 div 中的另一个段落。</p>-->
+<!--</div>-->
+<!--<p>这也是段落。</p>-->
+
+<!--<h1>欢迎来到我的主页</h1>-->
+<!--<p>我是唐老鸭 (index 0)。</p>-->
+<!--<p>唐老鸭 (index 1)。</p>-->
+<!--<p>我住在 Duckburg (index 2)。</p>-->
+<!--<p>我最好的朋友是米老鼠 (index 3)。</p>-->
+
+<h1>欢迎来到我的主页</h1>
+<p>我是唐老鸭。</p>
+<p class="intro">我住在 Duckburg。</p>
+<p class="intro">我爱 Duckburg。</p>
+<p>我最好的朋友是 Mickey。</p>
+<script src="../jquery-3.2.1.js"></script>
+<script>
+    $(document).ready(function() {
+//        $("div p").first().css("background-color","yellow");
+//        $("div p").last().css("background-color","yellow");
+//        $("h1~p").eq(2).css("background-color","yellow");
+//        $("p").filter(".intro").css("background-color","yellow");
+        $("p").not(".intro").css("background-color","yellow");
+    });
+</script>
+</body>
+</html>
