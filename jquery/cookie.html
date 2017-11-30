@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+<script src="../jquery-3.2.1.js"></script>
+<script>
+    $(function(){
+        addCookie("name","xi",10);
+        console.log(getCookie("name"));
+        delCookie("name");
+        function addCookie(key,val,expires){//expries以天为单位
+            if(key!=undefined && val!=undefined && expires!=undefined){
+                var date = new Date();
+                date.setDate(date.getDate()+expires);
+                document.cookie = key + "="+ val+";expires="+date;
+            }else{
+                return "please full the information of we need";
+            }
+        }
+        function getCookie(key){
+            if(key!=undefined){
+                var arrCookie = document.cookie.split(";");
+                for(var i=0;i<arrCookie.length;i++){
+                    var arrKey = arrCookie[i].split("=");
+                    if(arrKey[0].trim() == key){
+                        return arrKey[1];
+                    }
+                }
+            }else{
+                return "please full the key";
+            }
+        }
+        function delCookie(key){
+            if(key!=undefined){
+                var arrCookie = document.cookie.split(";");
+                for(var i=0;i<arrCookie.length;i++){
+                    var arrKey = arrCookie[i].split("=");
+                    var date = new Date();
+                    date.setDate(date.getDate()-1);
+                    if(arrKey[0].trim() == key){
+                        document.cookie = key +"="+" ;expires="+date;
+                    }
+                }
+            }else{
+                return "please full the key";
+            }
+        }
+    })
+</script>
+</body>
+</html>
