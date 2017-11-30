@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style type="text/css">
+        ul,li{
+            margin:0px;
+            padding:0px;
+            list-style:none;
+        }
+        li{
+            float:left;
+            background-color:#aaa;
+            color:white;
+            padding:5px;
+            margin-right:2px;
+            border:1px solid white;
+        }
+        div{
+            clear:left;
+            background-color:#777;
+            color:white;
+            width:300px;
+            height:100px;
+            padding:10px;
+            display:none;
+        }
+        #divOne{
+            display:block;
+        }
+        #liOne{
+            background-color:#777;
+            border:1px solid #777;
+        }
+    </style>
+</head>
+<body>
+<ul>
+    <li id="liOne">标签1</li>
+    <li>标签2</li>
+    <li>标签3</li>
+</ul>
+<div id="divOne">我是内容1</div>
+<div>我是内容2</div>
+<div>我是内容3</div>
+<script src="../jquery-3.2.1.js"></script>
+<script>
+    $(function () {
+        var $li=$("ul li");
+        $("ul li").on("mouseover",function(){
+            $(this).css({
+                "background-color":"#777",
+                "border":"1px solid #777",
+            }).siblings().css({
+                "background-color":"#aaa",
+                "border":"1px solid white",
+            })
+            var index=$li.index(this);
+            $("body > div").hide().eq(index).show();
+//            $("body").eq(index).nextAll("div").hide();
+
+        })
+    })
+</script>
+</body>
+</html>
